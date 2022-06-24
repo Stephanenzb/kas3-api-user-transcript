@@ -22,6 +22,8 @@ TRANSCRIPT_ID = 0
 SECRET_KEY = "kasApiToken"
 ALGORITHM ="HS256"
 ACCESS_TOKEN_EXPIRES_MINUTES = 800
+ELASTIC_PASSWORD = "LYuyF4cU1p39d8S8lH8dWt6p"
+CLOUD_ID = "KAS_music_recognition:ZXVyb3BlLXdlc3QzLmdjcC5jbG91ZC5lcy5pbzo0NDMkODE3ZTE1MzM2OGM1NDI0NjkwNjUwOTYwMDMyZGM3YWYkYmEzMjgwNGU1YzllNGY1Zjg5MjQ1NmNiZmM2Y2FmNGY="
 
 app = FastAPI()
 
@@ -37,7 +39,16 @@ app.add_middleware(
     allow_headers=['*']
 )
 
-elastic = Elasticsearch(hosts=["http://localhost:9200"])
+#elastic = Elasticsearch(hosts=["http://localhost:9200"])
+elastic = Elasticsearch(
+    
+    cloud_id = CLOUD_ID,
+    http_auth = ("elastic", ELASTIC_PASSWORD),
+    scheme= "https"
+)
+
+elastic.info()
+
 favicon_path = 'favicon.ico'
 
 
