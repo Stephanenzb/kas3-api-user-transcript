@@ -1,10 +1,16 @@
 from google.cloud import speech
+from google.oauth2 import service_account
+
+credentials = service_account.Credentials.from_service_account_file('./credentials/credentials.json')
+
 
 def transcribe_gcs(gcs_uri):
     """Asynchronously transcribes the audio file specified by the gcs_uri."""
     output = ""
 
-    client = speech.SpeechClient()
+    client = speech.SpeechClient(
+        credentials= credentials
+    )
 
     audio = speech.RecognitionAudio(uri=gcs_uri)
     config = speech.RecognitionConfig(
@@ -28,5 +34,3 @@ def transcribe_gcs(gcs_uri):
         output += result.alternatives[0].transcript + '\n'
         print("Confidence: {}".format(result.alternatives[0].confidence))
     return output
-
-#print(transcribe_gcs("gs://kas-audio/besomebody.wav"))
