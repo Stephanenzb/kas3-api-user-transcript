@@ -1,0 +1,4 @@
+runtime: python310
+service: kasapi
+env: flex 
+entrypoint: uvicorn main:app --reload

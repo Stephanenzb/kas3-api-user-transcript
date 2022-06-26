@@ -1,16 +1,8 @@
-from ast import Global
-from email import header
-from posixpath import split
-from signal import signal
-from urllib import response
 from xml.dom import NotFoundErr
 from elasticsearch import Elasticsearch
-from fastapi import FastAPI, File, UploadFile, Request, WebSocket
-from typing import Optional
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from numpy import sign
-from requests import Response
-from starlette.responses import FileResponse, JSONResponse, StreamingResponse
+from starlette.responses import FileResponse
 import json 
 import jwt
 from fastapi.encoders import jsonable_encoder
