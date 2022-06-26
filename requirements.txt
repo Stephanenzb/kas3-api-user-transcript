@@ -63,7 +63,6 @@ protobuf==3.20.1
 pure-eval==0.2.2
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
-PyAudio @ file:///C:/Users/siamk/pipwin/PyAudio-0.2.11-cp310-cp310-win_amd64.whl
 pycparser==2.21
 pydantic==1.9.0
 pydub==0.25.1
