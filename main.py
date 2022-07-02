@@ -7,6 +7,7 @@ import json
 import jwt
 from fastapi.encoders import jsonable_encoder
 from transcribe_long_audio import transcribe_gcs
+from transcribe_uploaded_files import transcribe_from_gcs
 
 
 USER_ID = 1
@@ -31,7 +32,6 @@ app.add_middleware(
     allow_headers=['*']
 )
 
-#elastic = Elasticsearch(hosts=["http://localhost:9200"])
 elastic = Elasticsearch(
     
     cloud_id = CLOUD_ID,
@@ -147,6 +147,15 @@ async def stored_transcriptions(index_name: str):
 def transcribe_audio(public_url : str):
     print(public_url)
     output = transcribe_gcs(public_url)
+    if (len(public_url) > 0):
+        return  output
+    else:
+        return {'404': 'Not Found'}   
+
+@app.get("/transcription-upload")
+def transcribe_audio_from_file(public_url : str):
+    print(public_url)
+    output = transcribe_from_gcs(public_url)
     if (len(public_url) > 0):
         return  output
     else:

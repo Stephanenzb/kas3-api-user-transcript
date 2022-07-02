@@ -6,6 +6,7 @@ asgiref==3.5.1
 asttokens==2.0.5
 audioread==2.1.9
 backcall==0.2.0
+gunicorn==19.9.0
 beautifulsoup4==4.11.1
 cachetools==5.2.0
 certifi==2021.10.8
