@@ -1,5 +1,4 @@
 runtime: python310
-service: kasapi
 env: standard 
 entrypoint: gunicorn main:app -w 4 -k uvicorn.workers.UvicornWorker
 instance_class: F2
