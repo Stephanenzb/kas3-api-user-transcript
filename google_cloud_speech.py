@@ -5,7 +5,7 @@ import io
 #test file 
 
 client = speech.SpeechClient()
-gcs_uri = "gs://kas-audio/mariah.wav"
+gcs_uri = "gs://kas-audio/"
 
 
 audio = speech.RecognitionAudio(uri=gcs_uri)
