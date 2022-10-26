@@ -152,6 +152,7 @@ def transcribe_audio(public_url : str):
     else:
         return {'404': 'Not Found'}   
 
+
 @app.get("/transcription-upload")
 def transcribe_audio_from_file(public_url : str):
     print(public_url)
